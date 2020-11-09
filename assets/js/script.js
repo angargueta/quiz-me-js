@@ -103,10 +103,9 @@ var allDone = function() {
     
     contentHeading.innerText = "All Done!";
     contentArea.innerHTML = "<p>Your final score is " + counter + "</p><br/>";
+    
     var enterHighScore = document.createElement("input");
-
     enterHighScore.name = "user-initials";
-  
     contentArea.appendChild(enterHighScore);
 
     var submitButton = document.createElement("button");

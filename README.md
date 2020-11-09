@@ -8,5 +8,6 @@ The requirements for this challenge were:
         <li>initals and scores can be saved at the end of the quiz</li>
     </ul>
 
+<img src="https://github.com/angargueta/quiz-me-js/blob/main/assets/images/Screen%20Shot%202020-11-08%20at%2010.20.06%20PM.png?raw=true" />
 
 URL link: https://angargueta.github.io/quiz-me-js/

@@ -71,7 +71,6 @@ var presentQuestion = function() {
 };
 
 
-
 var confirmAnswer = function(event) {
     
     var targetEl = event.target;
@@ -103,3 +102,67 @@ var allDone = function() {
     contentArea.appendChild(submitButton);
     document.getElementById("submit-button").addEventListener("click", handleSubmit);
 };
+
+
+//function triggered by the submit of the initials
+var handleSubmit = function() {
+    var initialInput = document.querySelector("input[name='user-initials'");
+    var scoreAndInitials = {
+        initials: initialInput.value,
+        score: counter
+    };
+    scores.push(scoreAndInitials);
+    saveScores();
+    getScores();
+    scores.sort((a, b) => b.score - a.score);
+    printHighScores();
+};
+
+var saveScores = function() {
+    localStorage.setItem("scores", JSON.stringify(scores));
+};
+
+// function to update scores array 
+var getScores = function() {
+    if (scores.length > 0) {
+        scores = localStorage.getItem("scores");
+        scores = JSON.parse(scores);
+   }
+}; 
+
+// function to print high scores
+var printHighScores = function() {
+    contentHeading.innerText = "High Scores";
+    contentArea.textContent = "";
+    
+    var orderedListEl = document.createElement("ol");
+    for (i = 0; i < scores.length; i++) {
+        var listItemEl = document.createElement("li");
+        listItemEl.textContent = scores[i].initials + " - " + scores[i].score;
+        orderedListEl.appendChild(listItemEl);
+        contentArea.appendChild(orderedListEl);
+    };
+    // button to go back to the start
+    var goBackButton = document.createElement("button");
+    goBackButton.textContent = "Go Back";
+    goBackButton.id = "go-back";
+    contentArea.appendChild(goBackButton);
+    document.getElementById("go-back").addEventListener("click", startQuiz);
+
+    // button to clear the high scores
+    var clearStorage = document.createElement("button");
+    clearStorage.textContent = "Clear High Scores";
+    clearStorage.id = "clear-storage";
+    contentArea.appendChild(clearStorage);
+    document.getElementById("clear-storage").addEventListener("click", clearHighScores);
+}; 
+
+var clearHighScores = function() {
+    localStorage.clear();
+    scores = [];
+    startQuiz();
+};
+
+startQuiz();
+document.getElementById("high-score-button").addEventListener("click", printHighScores);
+getScores();

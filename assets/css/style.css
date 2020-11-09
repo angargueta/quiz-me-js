@@ -1,0 +1,66 @@
+button {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    justify-content: space-between;
+} 
+
+header {
+    padding: 15px 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+header p {
+    float: right;
+    text-align: center;
+}
+
+main {
+    width:75%;
+    margin: 20px auto;
+}
+
+
+#questions {
+    margin: 20px;
+}
+
+#quiz-content {
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    width: 500px;
+    height: 500px;
+}
+
+#go-back {
+    background-color: purple;
+    position: relative;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#clear-storage {
+    background-color: purple;
+    position: relative;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#content-area {
+    position: static;
+    left: 30%;
+    top: 20%;
+    width: 600px;
+    height: 600px;
+}
